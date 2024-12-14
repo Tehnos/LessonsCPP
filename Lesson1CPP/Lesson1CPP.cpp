@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
+#include <numbers> 
 
 void HW1()
 {
@@ -67,17 +68,20 @@ void HW2()
     bool value = (n != 0);
     std::cout << std::boolalpha << value << std::endl;
 }
+const unsigned SecondsInMinute = 60;
+const unsigned MinutesInHour = 60;
+const unsigned SecondsPerHour = SecondsInMinute * MinutesInHour;
 void HW3()
 {
     int seconds;
     std::cout << "Enter the number of seconds spent playing the game:\n";
     std::cin >> seconds;
 
-    int hours = seconds / 3600;
-    seconds %= 3600;
+    int hours = seconds / SecondsPerHour;
+    seconds %= SecondsPerHour;
 
-    int minutes = seconds / 60;
-    seconds %= 60;
+    int minutes = seconds / MinutesInHour;
+    seconds %= MinutesInHour;
 
     std::cout << "You spent in the game: " << hours << " hour, " << minutes << " minutes, " << seconds << " seconds\n";
 
@@ -89,7 +93,7 @@ void HW3()
     std::cout << "Enter integer 2:\n";
     std::cin >> c;
 
-    std::cout << "Sum of these numbers: " << a + b + c << std::endl << "The product of these numbers: " << a * b * c << std::endl << "avg: " << (a + b + c) / 3 << std::endl;
+    std::cout << "Sum of these numbers: " << a + b + c << std::endl << "The product of these numbers: " << a * b * c << std::endl << "avg: " << static_cast<float>((a + b + c) / 3) << std::endl;
 
     std::cout << "Enter integer 1:\n";
     std::cin >> a;
@@ -118,37 +122,38 @@ void HW3()
     int R;
     std::cout << "Enter the radius of the circle:\n";
     std::cin >> R;
-    std::cout << "Circle area: " << acos(-1) * R * R;
-    std::cout << "Length : " << 2 * acos(-1) * R;
+    std::cout << "Circle area: " << std::numbers::pi * R * R;
+    std::cout << "Length : " << 2 * std::numbers::pi * R;
         
 }
 void HW4()
 {
     int a, b,c;
 
-    /*std::cout << "Enter integer 1:\n";
+    std::cout << "Enter integer 1:\n";
     std::cin >> a;
     std::cout << "Enter integer 2:\n";
     std::cin >> b;
     std::cout << "Enter integer 3:\n";
-    std::cin >> c;*/
+    std::cin >> c;
+    std::cout << std::max({ a,b,c });
 
-    //std::cout << "Enter integer:\n";
-    //std::cin >> a;
-    //if (a % 5 == 0 && a % 11 == 0) 
-    //    std::cout << "The number is divisible by both 5 and 11." << std::endl;
-    //else 
-    //    std::cout << "The number is not divisible by both 5 and 11." << std::endl;
+    std::cout << "Enter integer:\n";
+    std::cin >> a;
+    if (a % 5 == 0 && a % 11 == 0) 
+        std::cout << "The number is divisible by both 5 and 11." << std::endl;
+    else 
+        std::cout << "The number is not divisible by both 5 and 11." << std::endl;
 
 
-    //std::cout << "\nEnter three angles of a triangle: ";
-    //std::cin >> a >> b >> c;
-    //if (a > 0 && b > 0 && c > 0 && (a + b + c == 180)) 
-    //    std::cout << "The angles form a valid triangle." << std::endl;
-    //else 
-    //    std::cout << "The angles do not form a valid triangle." << std::endl;
+    std::cout << "\nEnter three angles of a triangle: ";
+    std::cin >> a >> b >> c;
+    if (a > 0 && b > 0 && c > 0 && (a + b + c == 180)) 
+        std::cout << "The angles form a valid triangle." << std::endl;
+    else 
+        std::cout << "The angles do not form a valid triangle." << std::endl;
 
-   /* std::cout << "Enter integer:\n";
+    std::cout << "Enter integer:\n";
     std::cin >> a;
     if (a > 2 && a <= 5)
         std::cout << "Spring\n";
@@ -157,14 +162,14 @@ void HW4()
     else if (a > 8 && a <= 11)
         std::cout << "Autumn\n";
     else
-        std::cout << "Winter\n";*/
+        std::cout << "Winter\n";
 
-   /* std::cout << "Enter integer 1:\n";
+    std::cout << "Enter integer 1:\n";
     std::cin >> a;
     std::cout << "Enter integer 2:\n";
     std::cin >> b;
     int min = (a < b) ? a : b;
-    std::cout << min ;*/
+    std::cout << min ;
 
     std::cout << "Enter a number (1-12) for a month: ";
     std::cin >> a;
